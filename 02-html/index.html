@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HTML — Kottans JS Homework</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav nav-main">
+            <a href="#about">About</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contacts">Contacts</a>
+            <a href="#register">Register</a>
+        </nav>
+    </header>
+
+    <section class="section section--about">
+        <a name="about"></a>
+        <h1>About the task</h1>
+        <hr>
+
+        <br>
+        <img align="right" src="images/logo.png" />
+
+        <h2>Write (pure) HTML code for home page for some abstract project.</h2>
+ 
+        <p>It should have:</p>
+        <ol class="todo-list">
+            <li>navigation menu that has several anchored links that are pointing to different sections on page ('#about, '#faq', '#contacts', '#register')</li>
+            <li>several sections:
+                <ol type="a">
+                    <li>faq: list of frequently asked questions</li>
+                    <li>contacts: some addresses (email-phones), blogs-twitter, etc.</li>
+                    <li>register: form that captures email/password/password confirmation</li>
+                    <li>feedback form?</li>
+                </ol>
+            </li>
+            <li>footer that has copyright. copy of links from the header, link to terms of service, etc.</li>
+        </ol>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+
+    <section class="section section--faq">
+        <a name="faq"></a>
+        <h1>FAQ</h1>
+        <hr>
+
+        <dl class="faq-list">
+            <dt>Who is kottans?<dt>
+            <dd>We are <a href="http://kottans.org">community</a> of developers that love to code and help each other.</dd>
+            <dt>What is HTML?<dt>
+            <dd>The <code>HTML</code> (Hyper Text Markup Language) is written in the form of HTML elements consisting of tags enclosed in angle brackets to form a content of the web page.</dd>
+        </dl>
+    </section>
+
+    <section class="section section--contacts">
+        <a name="contacts"></a>
+        <h1>Contacts</h1>
+        <hr>
+
+        <div class="contacts-container">
+            <dl class="contacts-list">
+                <dt>Address:</dt>
+                <dd>Ukraine, Kiev, Unnamed street, 1</dd>
+                <dt>Phone:</dt>
+                <dd>(012) 345-67-89</dd>
+                <dt>email:</dt>
+                <dd><a href="mailto:email@example.com">email@example.com</a></dd>
+                <dt>Website:</dt>
+                <dd><a href="http://kottans.org">kottans.org</a></dd>
+            </dl>
+
+            <div class="feedback-form">
+                <h3 class="feedback-title">Leave us a message</h3>
+                <form method="POST">
+                    <div class="form-row">
+                        <label for="feedback-email">Your name:</label>
+                        <input type="text" name="email" id="feedback-email">
+                    </div>
+                    <div class="form-row">
+                        <label for="feedback-email">Your email:</label>
+                        <input type="email" name="email" id="feedback-email">
+                    </div>
+                    <div class="form-row">
+                        <label for="feedback-message">Your Message:</label>
+                        <textarea name="message" id="feedback-message"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="social-container">
+            <h2 class="social-title">Follow Us</h2>
+            <dl class="social-list">
+                <li><a href="http://twitter.com" rel="nofollow">Twitter</a></li>
+                <li><a href="http:://facebook.com" rel="nofollow">Facebook</a></li>
+                <li><a href="http://github.com" rel="nofollow">Github</a></li>
+            </dl>
+        </div>
+    </section>
+
+    <section class="section section--register">
+        <a name="register"></a>
+        <h1>Register</h1>
+        <hr>
+
+        <div class="register-form">
+            <form method="POST">
+                <div class="form-row">
+                    <label for="register-email">Email:</label>
+                    <input type="text" name="email" id="register-email">
+                </div>
+                <div class="form-row">
+                    <label for="register-password">Password:</label>
+                    <input type="password" name="password" id="register-password">
+                </div>
+                <div class="form-row">
+                    <label for="register-repassword">Retype password:</label>
+                    <input type="password" name="repassword" id="register-repassword">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="nav nav-footer">
+            <a href="#about">About</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contacts">Contacts</a>
+            <a href="#register">Register</a>
+        </div>
+        <div class="nav-secondary">
+            <span class="copyright">
+                &copy; 2014 SleepWalker
+            </span>
+            | <a href="#">Terms of what you want</a>
+        </div>
+    </footer>
+</body>
+</html>
