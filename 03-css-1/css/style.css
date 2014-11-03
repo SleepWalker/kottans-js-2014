@@ -1,0 +1,234 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: #f7f7f7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #444;
+}
+
+a {
+    color: #39ACBB;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    line-height: 1.5;
+}
+
+.link--external::after {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-left: 5px;
+    background:  url('../images/link-external.png') no-repeat;
+}
+
+hr {
+    background: #ccc;
+    color: #ccc;
+    height: 1px;
+    border: 0;
+}
+
+.aside-image {
+    float: right;
+    margin: 10px 0 10px 40px;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 30px 0;
+}
+
+.section p:first-letter {
+    font-size: 1.8em;
+    line-height: 1;
+    color: #39ACBB;
+    font-family: courier;
+}
+
+.section-title {
+    margin: 0;
+}
+
+.section-title + hr {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.section--register {
+    background: #eee;
+    font-size: 1.2em;
+}
+
+/**
+ * Main Nav
+ */
+.nav {
+    overflow: hidden;
+}
+
+.nav-item {
+    float: left;
+    display: block;
+    padding: 10px 20px;
+}
+
+.nav-item:first-child {
+    padding-left: 0;
+}
+
+.nav--main .nav-item {
+    color: #386BE5;
+}
+
+/**
+ * Forms
+ */
+.form input[type=text],
+.form input[type=password],
+.form input[type=email],
+.form textarea {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+    padding: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 20em;
+}
+
+.form textarea {
+    height: 100px;
+}
+
+.button {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+    padding: 5px 20px;
+
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #f7f7f7;
+}
+
+.form-row label {
+    width: 10em;
+    box-sizing: border-box;
+    padding-right: 5px;
+    padding-top: 5px;
+    display: inline-block;
+
+    vertical-align: top;
+    text-align: right;
+}
+
+.form-row input[type=text],
+.form-row input[type=password],
+.form-row input[type=email],
+.form-row textarea {
+    vertical-align: top;
+}
+
+.form-row,
+.form-actions {
+    padding: 15px 0;
+}
+
+.form-actions {
+    width: 30em;
+    overflow: hidden;
+}
+
+.form-actions .button {
+    float: right;
+}
+
+/**
+ * FAQ
+ */
+.faq-list dt {
+    font-weight: bold;
+}
+
+.faq-list dd {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/**
+ * Contacts
+ */
+.contacts-list {
+    overflow: hidden;
+    line-height: 30px;
+}
+
+.contacts-list dt {
+    width: 100px;
+    clear: left;
+
+    text-align: right;
+    font-weight: bold;
+}
+
+.contacts-list dt,
+.contacts-list dd {
+    float: left;
+}
+
+.contacts-list dd {
+    margin-left: 10px;
+}
+
+.pull-right {
+    float: right;
+}
+
+/**
+ * Social
+ */
+.social-container {
+    margin-top: 30px;
+}
+
+.social-list li {
+    float: left;
+    list-style: none;
+    margin-right: 10px;
+}
+
+/**
+ * Footer
+ */
+.footer {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.nav-secondary {
+    margin-top: 20px;
+}
