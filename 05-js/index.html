@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+</head>
+<body>
+    <script type="text/javascript" src="js/deep-copy.js"></script>
+    <script type="text/javascript">
+        (function() {
+            'use strict';
+
+            var a = {b: 'c', d: {e: 'f'}};
+            var b = deepCopy(a);
+            a.d = 12;
+            document.body.innerHTML += b.d + ' should NOT be equal to ' + a.d;
+        }());
+    </script>
+</body>
+</html>
