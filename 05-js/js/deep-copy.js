@@ -49,7 +49,9 @@ var deepCopy = (function() {
     }
 
     function filterValue(value) {
-        if (typeof value === 'object') {
+        if (isArray(value)) {
+            return copyOwnProperties([], value);
+        } else if (isObject(value)) {
             return copyOwnProperties({}, value);
         } else {
             return value;
