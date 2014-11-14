@@ -59,7 +59,7 @@ var deepCopy = (function() {
     }
 
     function isEnumerable(value) {
-        return (isObject(value) || isArray(value)) && value;
+        return value && (isObject(value) || isArray(value));
     }
 
     function isObject(value) {
@@ -67,7 +67,7 @@ var deepCopy = (function() {
     }
 
     function isArray(value) {
-        return Object.prototype.toString.call(value) === '[object Array]';
+        return value.constructor === Array;
     }
 
     return deepCopy;
