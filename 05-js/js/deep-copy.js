@@ -31,19 +31,17 @@ var deepCopy = (function() {
             sources = [].slice.call(arguments, 1);
         }
 
-        for (var i = 0; i < sources.length; i++) {
-            copyOwnProperties(destination, sources[i]);
-        }
+        sources.map(function(source) {
+            copyOwnProperties(destination, source);
+        });
 
         return destination;
     }
 
     function copyOwnProperties(destination, source) {
-        for (var key in source) {
-            if (source.hasOwnProperty(key)) {
-                destination[key] = filterValue(source[key]);
-            }
-        }
+        Object.keys(source).map(function(key) {
+            destination[key] = filterValue(source[key]);
+        });
 
         return destination;
     }
