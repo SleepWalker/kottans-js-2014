@@ -1,0 +1,51 @@
+@import "breakpoint";
+@import "normalize";
+@import "utils";
+
+$bp-mid: 570px;
+$bp-lg: 960px;
+
+body {
+    background: #f7f7f7;
+}
+
+@import "typography";
+
+.link--external::after {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-left: 5px;
+    background:  url('../images/link-external.png') no-repeat;
+}
+
+hr {
+    background: #ccc;
+    color: #ccc;
+    height: 1px;
+    border: 0;
+}
+
+.aside-image {
+    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+
+    @include breakpoint($bp-lg) {
+        float: right;
+        margin: 10px 0 10px 40px;
+    }
+}
+
+
+@import "layout";
+
+@import "navs";
+@import "forms";
+@import "faq";
+@import "contacts";
+@import "map";
+@import "social";
+@import "quiz";
+@import "footer";

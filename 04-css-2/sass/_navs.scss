@@ -1,0 +1,41 @@
+.nav {
+    overflow: hidden;
+}
+
+.nav__item {
+    display: block;
+    padding: 10px 25%;
+    text-decoration: none;
+
+    background: #eee;
+    border-bottom: 1px #ccc solid;
+
+    transition: .4s ease;
+
+    &:hover {
+        opacity: .5;
+        transform: scale(1.1);
+    }
+}
+
+.nav--main .nav__item {
+    color: #386BE5;
+}
+
+@include breakpoint($bp-mid) {
+    .nav {
+        background: #eee;
+        border-bottom: 1px #ccc solid;
+        text-align: center;
+    }
+
+    .nav__item {
+        display: inline-block;
+        margin: 0 10px;
+
+        padding: {
+            right: 20px;
+            left: 0;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.contacts-list {
+    overflow: hidden;
+    line-height: 30px;
+
+    dt {
+        font-weight: bold;
+    }
+}
+
+.feedback-title {
+    margin: 50px 0 0;
+}
+
+.form--feedback {
+    overflow: hidden;
+}
+
+@include breakpoint($bp-mid) {
+    .feedback-title {
+        display: none;
+    }
+
+    .contacts-list {
+        dt,
+        dd {
+            float: left;
+        }
+
+        dt {
+            width: 100px;
+            clear: left;
+
+            text-align: right;
+        }
+
+        dd {
+            margin-left: 10px;
+        }
+    }
+}
+
+@include breakpoint($bp-lg) {
+    .contacts-aside {
+        float: right;
+    }
+
+    .form--feedback > form {
+        float: left;
+    }
+}

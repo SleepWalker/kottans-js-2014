@@ -1,0 +1,41 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 30px 10%;
+    margin: 0 auto;
+
+    @include breakpoint($bp-lg) {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.section p:first-letter {
+    font-size: 1.8em;
+    line-height: 1;
+    color: #39ACBB;
+    font-family: courier;
+}
+
+.section__title {
+    margin: 0;
+}
+
+.section__title + hr {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.section--register {
+    background: #eee;
+    font-size: 1.2em;
+}
+

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title>CSS — Kottans JS Homework</title>
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav nav--main">
+            <a class="nav__item" href="#about"><i class="fa fa-home"></i> Home</a>
+            <a class="nav__item" href="#faq"><i class="fa fa-question"></i> FAQ</a>
+            <a class="nav__item" href="#contacts"><i class="fa fa-phone"></i> Contacts</a>
+            <a class="nav__item" href="#subscribe"><i class="fa fa-rocket"></i> Stay in Touch</a>
+        </nav>
+    </header>
+
+    <section class="section section--about" id="about">
+        <div class="wrapper">
+            <h1 class="section__title">About the task</h1>
+            <hr>
+
+            <br>
+            <img class="aside-image" alt="Cottans Logo" src="images/logo.png" />
+
+            <h2>Write (pure) HTML code for home page for some abstract project.</h2>
+
+            <p>It should have:</p>
+            <ol class="todo-list">
+                <li>navigation menu that has several anchored links that are pointing to different sections on page ('#about, '#faq', '#contacts', '#register')</li>
+                <li>several sections:
+                    <ol type="a">
+                        <li>faq: list of frequently asked questions</li>
+                        <li>contacts: some addresses (email-phones), blogs-twitter, etc.</li>
+                        <li>register: form that captures email/password/password confirmation</li>
+                        <li>feedback form?</li>
+                    </ol>
+                </li>
+                <li>footer that has copyright. copy of links from the header, link to terms of service, etc.</li>
+            </ol>
+
+            <h2>Используя страницу, полученную в результате выполнения задания №1:</h2>
+
+            <ul class="todo-list">
+                <li>Подключите к странице css фаил.</li>
+                <li>Измените фон (любой) всей страницы.</li>
+                <li>Измените заголовок (любой стиль), увеличьте первую букву каждого параграфа.</li>
+                <li>Поменяйте цвет текста всех ссылок: ссылки меню – одного цвета, ссылки на странице – другого.</li>
+                <li>Добавьте стили для ссылок при наведении на них.</li>
+                <li>Измените цвет фона одного из разделов, на котором есть id, но используя класс и измените в нем размер шрифта.</li>
+                <li>Не забудьте добавить в цсс фаил минимальный reset, на ваше усмотрение.</li>
+                <li>Используйте псевдо-элементы :before/:after – минимум один раз на странице, на ваше усмотрение.</li>
+            </ul>
+
+            <h2>Задание 3</h2>
+            <p>Сверсать по wireframe <a href="https://moqups.com/sudodoki/KljcOP8V">https://moqups.com/sudodoki/KljcOP8V</a>. Из особенностей: в левом верхнем углу - переключалка между 3мя видами одной и той же странице. В задании могут пригодиться media query, о которых так приятно читать самому. Вопросы не стесняйтесь задавать в общий чат. :smile_cat:</p>
+        </div>
+    </section>
+
+    <section class="section section--faq" id="faq">
+        <div class="wrapper">
+            <h1 class="section__title">FAQ</h1>
+            <hr>
+
+            <dl class="faq-list">
+                <dt>Who is kottans?<dt>
+                <dd>We are <a href="http://kottans.org">community</a> of developers that love to code and help each other.</dd>
+                <dt>What is HTML?<dt>
+                <dd>The <code>HTML</code> (Hyper Text Markup Language) is written in the form of HTML elements consisting of tags enclosed in angle brackets to form a content of the web page.</dd>
+            </dl>
+        </div>
+    </section>
+
+    <section class="section section--contacts" id="contacts">
+        <div class="wrapper">
+            <h1 class="section__title">Contacts</h1>
+            <hr>
+        </div>
+
+        <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2541.163454747726!2d30.523332999999997!3d50.438055999999996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cefe21186ec7%3A0x2f28633973eda2d1!2z0JrRgNC10YnQsNGC0LjQuiwg0JrQuNC10LIsINCz0L7RgNC-0LQg0JrQuNC10LI!5e0!3m2!1sru!2sua!4v1415645795471" width="100%" height="450" frameborder="0" style="border:0"></iframe></div>
+
+        <div class="wrapper">
+            <div class="contacts-aside">
+                <dl class="contacts-list">
+                    <dt>Address:</dt>
+                    <dd>Ukraine, Kiev, Unnamed street, 1</dd>
+                    <dt>Phone:</dt>
+                    <dd>(012) 345-67-89</dd>
+                    <dt>email:</dt>
+                    <dd><a href="mailto:email@example.com">email@example.com</a></dd>
+                    <dt>Website:</dt>
+                    <dd><a href="http://kottans.org" class="link--external">kottans.org</a></dd>
+                </dl>
+
+                <div class="social">
+                    <h2 class="social__title">Follow Us</h2>
+                    <ul class="social__list">
+                        <li><a href="http://twitter.com" rel="nofollow"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="http://facebook.com" rel="nofollow"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="http://github.com" rel="nofollow"><i class="fa fa-git"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form form--feedback">
+                <h2 class="feedback-title">Mail Us</h2>
+                <form method="POST">
+                    <div class="form__row">
+                        <label for="feedback-email">Your name:</label>
+                        <input type="text" name="name" id="feedback-name">
+                    </div>
+                    <div class="form__row">
+                        <label for="feedback-email">Your email:</label>
+                        <input type="email" name="email" id="feedback-email">
+                    </div>
+                    <div class="form__row">
+                        <label for="feedback-message">Your Message:</label>
+                        <textarea name="message" id="feedback-message"></textarea>
+                    </div>
+                    <div class="form__actions">
+                        <button class="button" type="submit">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--register" id="register">
+        <div class="wrapper">
+            <h1 class="section__title">Register</h1>
+            <hr>
+
+            <div class="form form--subscribe">
+                <form method="POST">
+                    <div class="form__row">
+                        <label for="subscribe-name">Name:</label>
+                        <input type="text" name="name" id="subscribe-name">
+                    </div>
+                    <div class="form__row">
+                        <label for="subscribe-email">Email:</label>
+                        <input type="email" name="password" id="subscribe-email">
+                    </div>
+                    <div class="form__row form__row--checkbox">
+                        <label for="subscribe-agree">
+                            <input type="checkbox" name="agree" id="subscribe-agree">
+                            I agree to get spam
+                        </label>
+                    </div>
+                    <div class="form__actions">
+                        <button class="button" type="submit">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="wrapper section quiz">
+            <h3>Let us hear your feedback</h3>
+            <div class="form form--quiz">
+                <form method="POST">
+                    <fieldset class="quiz">
+                        <legend class="quiz__question">How likely will you advise us?</legend>
+                        <label class="quiz__item"><input type="radio" name="answer" value="--"> --</label>
+                        <label class="quiz__item"><input type="radio" name="answer" value="-+"> -+</label>
+                        <label class="quiz__item"><input type="radio" name="answer" value="+-"> +-</label>
+                        <label class="quiz__item"><input type="radio" name="answer" value="++"> ++</label>
+                    </fieldset>
+                    <div class="form__actions">
+                        <button class="button" type="submit">Vote</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="nav nav--footer">
+            <a class="nav__item" href="#about"><i class="fa fa-home"></i> About</a>
+            <a class="nav__item" href="#faq"><i class="fa fa-question"></i> FAQ</a>
+            <a class="nav__item" href="#contacts"><i class="fa fa-phone"></i> Contacts</a>
+            <a class="nav__item" href="#subscribe"><i class="fa fa-rocket"></i> Stay in Touch</a>
+        </div>
+        <div class="copyright">
+            &copy; 2014 SleepWalker
+        </div>
+    </footer>
+</body>
+</html>

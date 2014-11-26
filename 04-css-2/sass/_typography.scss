@@ -1,0 +1,31 @@
+html {
+    font-size: 62.5%;
+}
+
+$rem-base: 10px;
+
+
+body {
+    font-size: rem-calc(15px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #444;
+}
+
+a {
+    color: #39ACBB;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    line-height: 1.5;
+}

@@ -1,0 +1,95 @@
+.form {
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    textarea {
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+
+        padding: 5px;
+        box-sizing: border-box;
+        display: inline-block;
+
+        width: 100%;
+        @include breakpoint($bp-lg) {
+            width: 20em;
+        }
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    input[type=checkbox],
+    input[type=radio] {
+        vertical-align: text-top;
+    }
+
+    label {
+        cursor: pointer;
+    }
+}
+
+.button {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+    cursor: pointer;
+
+    padding: 20px 30px;
+
+    @include breakpoint($bp-lg) {
+        padding: 5px 20px;
+    }
+
+    &:hover {
+        background: #f7f7f7;
+    }
+}
+
+.form__row {
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    textarea {
+        vertical-align: top;
+    }
+
+    label {
+        box-sizing: border-box;
+        padding-right: 5px;
+        padding-top: 5px;
+        display: inline-block;
+
+        vertical-align: top;
+        @include breakpoint($bp-lg) {
+            text-align: right;
+            width: 10em;
+        }
+    }
+}
+
+.form__row--checkbox {
+    label {
+        width: 30em;
+        text-align: right;
+    }
+}
+
+.form__row,
+.form__actions {
+    padding: 15px 0;
+}
+
+.form__actions {
+    overflow: hidden;
+    @include breakpoint($bp-lg) {
+        width: 30em;
+    }
+
+    .button {
+        float: right;
+    }
+}
