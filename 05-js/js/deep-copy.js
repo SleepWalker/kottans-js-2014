@@ -31,7 +31,7 @@ var deepCopy = (function() {
             sources = [].slice.call(arguments, 1);
         }
 
-        sources.map(function(source) {
+        sources.forEach(function(source) {
             copyOwnProperties(destination, source);
         });
 
@@ -39,7 +39,7 @@ var deepCopy = (function() {
     }
 
     function copyOwnProperties(destination, source) {
-        Object.keys(source).map(function(key) {
+        Object.keys(source).forEach(function(key) {
             destination[key] = filterValue(source[key]);
         });
 

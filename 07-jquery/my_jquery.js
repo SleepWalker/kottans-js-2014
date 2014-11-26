@@ -53,7 +53,7 @@ var my_$ = (function () {
                 sources = [].slice.call(arguments, 1);
             }
 
-            sources.map(function (source) {
+            sources.forEach(function (source) {
                 copyOwnProperties(destination, source);
             });
 
@@ -61,7 +61,7 @@ var my_$ = (function () {
         }
 
         function copyOwnProperties(destination, source) {
-            Object.keys(source).map(function (key) {
+            Object.keys(source).forEach(function (key) {
                 destination[key] = filterValue(source[key]);
             });
 
@@ -117,11 +117,11 @@ var my_$ = (function () {
             if ($.isObject(key)) {
                 var styles = key;
 
-                this.map(function(el) {
+                this.forEach(function(el) {
                    $.extend(el.style, styles);
                 });
             } else {
-                this.map(function(el) {
+                this.forEach(function(el) {
                    el.style[key] = value;
                 });
             }
@@ -133,8 +133,8 @@ var my_$ = (function () {
             return [].slice.call(this.nodesList);
         },
 
-        map: function(callback) {
-            this.asArray().map(callback);
+        forEach: function(callback) {
+            this.asArray().forEach(callback);
 
             return this;
         }
