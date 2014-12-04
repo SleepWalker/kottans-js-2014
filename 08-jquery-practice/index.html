@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-    <body>
+<body>
 
     <nav class="top-bar" data-topbar>
         <ul class="title-area">
@@ -25,8 +25,8 @@
         </ul>
 
         <section class="top-bar-section">
-            <ul class="left">
-                <li class="active"><a href="#login">Login</a></li>
+            <ul class="left" id="nav">
+                <li><a href="#login">Login</a></li>
                 <li><a href="#signup">Signup</a></li>
                 <li><a href="#list">List my dates!</a></li>
                 <li><a href="#show-full">Details</a></li>
@@ -34,59 +34,56 @@
         </section>
     </nav>
 
-        <div id="login">
-                <div class="row">
-                    <div class="column small-offset-1 small-10 large-offset-2 large-8">
-                        <h1>Login</h1>
-                        <form method="post" action="http://localhost:8888/login" class="small-8">
-                            <input class="error" name="login" type="text" placeholder="enter your login">
-                            <small class="error">Something went wrong!</small>
-                            <input name="password" type="password" placeholder="enter your password">
-                            <input type="submit" value="Log me in" class="button">
-                            <a href="/signup" class="button secondary">Sign me up</a>
-                        </form>
-                    </div>
-                </div>
-        </div>
-        <hr>
-        <div id="signup">
-            <div class="row">
-                <div class="column small-offset-1 small-10 large-offset-2 large-8">
-                    <h1>Signup</h1>
-                    <form method="post" action="http://localhost:8888/signup" class="small-8">
-                        <input class="error" name="login" type="text" placeholder="enter your login">
-                        <small class="error">Something went wrong!</small>
-                        <input name="email" type="email" placeholder="enter your email">
-                        <input name="password" type="password" placeholder="enter your new password">
-                        <input name="passwordConfirmation" type="password" placeholder="retype it">
-                        <input type="submit" value="Let me in!" class="button">
-                        <a href="/login" class="button secondary">Nah, I do have an account already.</a>
-                    </form>
-                </div>
+    <div class="wrapper">
+        <div id="login" class="section section--login">
+            <div class="row small-3">
+                <h1>Login</h1>
+                <form method="post" action="http://localhost:8888/login">
+                    <input class="error" name="login" type="text" placeholder="enter your login">
+                    <small class="error">Something went wrong!</small>
+                    <input name="password" type="password" placeholder="enter your password">
+                    <input type="submit" value="Log me in" class="button">
+                    <a href="/signup" class="button secondary">Sign me up</a>
+                </form>
             </div>
         </div>
-        <hr>
-        <div id="list">
-            <ul class="small-block-grid-3">
-            <li>
-                <div class="person male">
+
+        <div id="signup" class="section section--register">
+            <div class="row small-3">
+                <h1>Signup</h1>
+                <form method="post" action="http://localhost:8888/signup" class="small-12">
+                    <input class="error" name="login" type="text" placeholder="enter your login">
+                    <small class="error">Something went wrong!</small>
+                    <input name="email" type="email" placeholder="enter your email">
+                    <input name="password" type="password" placeholder="enter your new password">
+                    <input name="passwordConfirmation" type="password" placeholder="retype it">
+                    <input type="submit" value="Let me in!" class="button">
+                    <a href="/login" class="button secondary">Nah, I do have an account already.</a>
+                </form>
+            </div>
+        </div>
+
+        <div id="list" class="section section--usersList">
+            <ul class="person-list">
+            <li class="person-list__card">
+                <div class="person person--male">
                     <a class='url n' href="#show-full"><i>Mr.</i> Know-it-all, I</a>
                 </div>
             </li>
-            <li>
-                <div class="person female">
+            <li class="person-list__card">
+                <div class="person person--female">
                     <a class='url n' href="#show-full"><i>Mrs.</i> Did-it, Been-there</a>
                 </div>
             </li>
-            <li>
-                <div class="person male">
+            <li class="person-list__card">
+                <div class="person person--male">
                     <a class='url n' href="#show-full"><i>Mr.</i> Real Fun.</a>
                 </div>
             </li>
             </ul>
         </div>
-        <hr>
-        <div id="show-full">
+
+        <div id="show-full" class="section section--user">
             <div>
             <img src="images/ajax-loader.gif" alt="AJAX loader animation">
             <h2>Mr. Know-it-all, I</h2>
@@ -103,26 +100,11 @@
             </section>
             </div>
         </div>
-        <!--[if lt IE 7]><script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script><script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script><![endif]-->
-        <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script-->
-        <script src="../js/vendor/jquery.min.js"></script>
-        <script src="js/client.js"></script>
-    </body>
+    </div>
+    <!--[if lt IE 7]><script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script><script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script><![endif]-->
+    <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script-->
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/client.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
 </html>
-
-<!-- <div id="your section">
-            <header>
-                <a href="logout">Log out</a>
-            </header>
-            <div id="main" role="main">
-
-            </div>
-            <footer>
-
-            </footer>
-        </div> -->
-
-
-
-
-
