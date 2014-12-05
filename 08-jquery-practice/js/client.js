@@ -11,6 +11,8 @@ function DatingClient() {}
 // TODO: Loader queue (ui dir), asset manager
 // TODO: app namespace
 
+// TODO: возможность немедленно прервать Page transition
+
 
 //TODO: "pushState" in history
 
@@ -50,7 +52,7 @@ function DatingClient() {}
                 throw new Error('Not authorized. Need token');
             }
 
-            if (arguments.length == 0) {
+            if (!arguments.length) {
                 throw new Error('Need at least one argument');
             }
 

@@ -27,7 +27,7 @@ $(function() {
 
     function animationEndHandler() {
         animatingQueue.pop();
-        if (animatingQueue.length === 0) {
+        if (!animatingQueue.length) {
             $curPage.attr('class', $curPage.data('initialClassList') + ' ' + activeClass);
 
             if ($lastPage) {
@@ -41,7 +41,7 @@ $(function() {
         var $section = $(id);
         var $a = $('#nav').find('[href$="'+id+'"]');
         var $li = $a.closest('li');
-        var canNavigate = $section.length && animatingQueue.length === 0 && !$li.hasClass('active');
+        var canNavigate = $section.length && !animatingQueue.length && !$li.hasClass('active');
         if (canNavigate) {
             $('#nav').find('li').removeClass('active');
             changePage($section);
