@@ -14,10 +14,10 @@
 //   });
 // });
 
-function simpleResponse(code, data) {
+function simpleResponse(code, data, contentType) {
     jasmine.Ajax.requests.mostRecent().respondWith({
         "status": code,
-        "contentType": 'text/plain',
+        "contentType": contentType || 'text/plain',
         "responseText": JSON.stringify(data)
     });
 }
