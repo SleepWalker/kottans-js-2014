@@ -8,6 +8,12 @@ function DatingClient() {}
 
 // TODO: FP
 
+// TODO: Loader queue (ui dir), asset manager
+// TODO: app namespace
+
+
+//TODO: "pushState" in history
+
 (function() {
     'use strict';
 

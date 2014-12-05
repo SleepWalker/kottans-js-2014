@@ -10,7 +10,7 @@ body > header a:last-child:after {
 
 html,
 body,
-.wrapper,
+.full-screen,
 .section {
     height: 100%;
     width: 100%;
@@ -21,18 +21,17 @@ body {
 }
 
 .top-bar {
-    position: fixed;
+    position: absolute;
     width: 100%;
-    z-index: 999;
+    z-index: 10;
 }
 
 /**
  * Sections
  */
-.wrapper {
+ .page-transition-viewport {
     overflow: hidden;
     position: relative;
-
     perspective: 1200px;
     transform-style: preserve-3d;
 }
@@ -142,28 +141,125 @@ body {
  * Page transitions
  */
 .pt--scaleDownUp {
-    -webkit-animation: scaleDownUp .5s ease both;
     animation: scaleDownUp .5s ease both;
 }
 .pt--scaleUp {
-    -webkit-animation: scaleUp .7s ease both;
     animation: scaleUp .7s ease both;
 }
 .pt--delay300 {
-    -webkit-animation-delay: .3s;
     animation-delay: .3s;
-}
-@-webkit-keyframes scaleDownUp {
-    from { }
-    to { opacity: 0; -webkit-transform: scale(1.2); }
 }
 @keyframes scaleDownUp {
     from { }
-    to { opacity: 0; -webkit-transform: scale(1.2); transform: scale(1.2); }
-}
-@-webkit-keyframes scaleUp {
-    from { opacity: 0; -webkit-transform: scale(.8); }
+    to { opacity: 0; transform: scale(1.2); }
 }
 @keyframes scaleUp {
-    from { opacity: 0; -webkit-transform: scale(.8); transform: scale(.8); }
+    from { opacity: 0; transform: scale(.8); }
+}
+
+/**
+ * Ajax Loader
+ */
+.loader {
+    border-radius: 0 100px 100px 0;
+    left: -192px;
+    opacity: 0.9;
+    padding-left: 30px;
+    position: fixed;
+    top: 45%;
+    z-index: 100005;
+    transform: translateZ(0px);
+
+    box-shadow: 0 0 85px black, 0 0 85px black;
+    background: #000;
+
+    transition: .4s;
+}
+
+.loader.is-active {
+    left: 0;
+}
+
+.loader__indicator {
+    border-radius: 0 100px 100px 0;
+    height: 72px;
+    width: 72px;
+    background: url("../images/preloader.gif") no-repeat scroll center center #000;
+}
+
+/**
+ * App layout
+ */
+.app,
+.app__loader,
+.app__content {
+    height: 100%;
+    width: 100%;
+}
+.app {
+    overflow: hidden;
+    position: relative;
+}
+
+.app__loader {
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    background: #f1f1f1;
+    overflow: hidden;
+
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app__content {
+}
+
+.init-loader {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+
+    text-align: center;
+}
+.init-loader path {
+    fill: none;
+    stroke-width: 6;
+}
+.init-loader__progress {
+    transition: stroke-dashoffset 0.2s;
+    /*stroke: #ef6e7e;*/
+    stroke: #000;
+}
+.init-loader__base {
+    stroke: #ddd;
+}
+
+.app__loader .init-loader,
+.app__loader .logo {
+    opacity: 1;
+    animation: animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both;
+}
+
+.app__loader .init-loader {
+    animation-delay: 0.2s;
+}
+
+@keyframes animInitialHeader {
+    from {
+        opacity: 0;
+        transform: translate3d(0,800px,0);
+    }
+}
+
+.app.is-loaded .app__loader {
+    animation: animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes animLoadedHeader {
+    to { transform: translate3d(0,-100%,0); }
 }
