@@ -6,9 +6,21 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon",
+    "jshint": "jshint *.js",
+    "jscs": "jscs *.js"
   },
+  "pre-commit": [
+    "jshint",
+    "jscs"
+  ],
   "dependencies": {
     "express": "^4.10.6"
+  },
+  "devDependencies": {
+    "jscs": "^1.8.1",
+    "jshint": "^2.5.11",
+    "pre-commit": "0.0.9"
   }
 }
