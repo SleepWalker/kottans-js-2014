@@ -1,0 +1,12 @@
+<% if (user) { %>
+    <p><a href="/logout">logout</a></p>
+<% } else { %>
+    <h3>Please, login</h3>
+
+    <form action="/login" method="POST">
+        <input type="text" name="username" placehoder="Please, enter your username">
+        <input type="text" name="password" placehoder="Please, enter your password">
+        <input type="submit" value="Sign me in">
+    </form>
+    <p><a href="/auth/github">Sign in using Github</a></p>
+<% } %>
