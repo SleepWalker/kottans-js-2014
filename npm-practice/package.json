@@ -1,0 +1,11 @@
+{
+  "name": "npm-practice",
+  "version": "1.0.0",
+  "description": "Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SleepWalker <dev@udf.su>",
+  "license": "ISC"
+}
