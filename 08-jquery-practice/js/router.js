@@ -1,55 +1,75 @@
-var router = (function() {
+function Router() {
+    this.init();
+    this._setEvents();
+}
+
+(function() {
     'use strict';
 
     /**
      * NOTE: Supporting only hash navigation
      */
 
-    function Router() {
-        this._setEvents();
-    }
-
-    var emitter = $({});
+    var currentAction;
 
     Router.prototype = $.extend(Router.prototype, {
-        on: function(event, func) {
-            emitter.on.apply(emitter, [].slice.call(arguments, 0, 2));
-
-            return this;
+        init: function() {
+            currentAction = this.parseUrl(location.hash);
         },
 
-        off: function(event, func) {
-            emitter.off.apply(emitter, [].slice.call(arguments, 0, 2));
+        parseUrl: function(url) {
+            var parts = url.replace(/[^#]*#/, '').split('/');
 
-            return this;
-        },
-
-        _route: function(url) {
-            var parts = url.replace('#', '').split('/');
-
-            if (!url[0]) {
-                return;
+            if (!parts[0]) {
+                return [];
             }
 
             var args = [parts[0]];
 
             if (parts.length > 1) {
                 args.push(parts.slice(1));
+            } else {
+                args.push([]);
             }
 
-            emitter.trigger('change', args);
+            return {
+                id: args[0],
+                params: args[1]
+            };
+        },
+
+        getAction: function() {
+            return $.extend({}, currentAction);
+        },
+
+        go: function(url, title) {
+            url = url.replace(/^https?:\/\/[^\/#]+\/?/, '');
+            url = location.origin + '/' + url;
+
+            history.pushState(null, title, url);
+
+            this._route(url);
+        },
+
+        _route: function(url) {
+            var action = this.parseUrl(url);
+
+            if (!action.id) {
+                return false;
+            }
+
+            currentAction = this.parseUrl(location.hash);
+
+            this.trigger('change', [action.id, action.params]);
         },
 
         _routeLink: function(event) {
             event.preventDefault();
 
-            history.pushState(null, $(event.target).text(), event.target.href);
-
-            this._route(event.target.hash);
+            this.go(event.currentTarget.href, $(event.currentTarget).text());
         },
 
         _statePopped: function(event) {
-
             this._route(location.hash);
         },
 
@@ -62,5 +82,5 @@ var router = (function() {
         }
     });
 
-    return new Router();
+    Emitter.mixinTo(Router);
 }());

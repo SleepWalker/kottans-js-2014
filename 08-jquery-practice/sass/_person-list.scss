@@ -1,0 +1,57 @@
+.person-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    list-style: none;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.person-list__card {
+    width: 33.333%;
+    padding: 10px;
+}
+
+.person {
+    position: relative;
+    display: block;
+    padding: 20px;
+
+    border: 1px solid;
+    border-radius: 4px;
+    background: #f7f7f7;
+
+    text-align: center;
+
+    cursor: pointer;
+}
+.person:hover {
+    background: #fff;
+}
+.person__link {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+.person--male {
+    border-color: blue;
+}
+.person--male:before {
+    content: '♂';
+    color: blue;
+}
+
+.person--female {
+    border-color: #FD6A62;
+}
+.person--female:before {
+    content: '♀';
+    color: #FD6A62;
+}
+.person:before {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    font-size: 40px;
+}

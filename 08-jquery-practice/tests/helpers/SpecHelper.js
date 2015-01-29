@@ -18,7 +18,7 @@ function simpleResponse(code, data, contentType) {
     jasmine.Ajax.requests.mostRecent().respondWith({
         "status": code,
         "contentType": contentType || 'text/plain',
-        "responseText": JSON.stringify(data)
+        "responseText": $.isPlainObject(data) ? JSON.stringify(data) : data
     });
 }
 

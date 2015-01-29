@@ -1,0 +1,27 @@
+.login-form {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 290px;
+}
+.signup-form {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 390px;
+}
+
+.login-form .button,
+.signup-form .button {
+    width: 100%;
+}
+
+@media (min-width: 400px) {
+    .login-form .button {
+        width: auto;
+    }
+}
+
+@media (min-width: 520px) {
+    .signup-form .button {
+        width: auto;
+    }
+}

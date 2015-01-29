@@ -2,11 +2,13 @@ describe("Request", function() {
     'use strict';
 
     var client = new DatingClient();
+    client.sessionKey = 'testing';
     beforeEach(function() {
         jasmine.Ajax.install();
     });
 
     afterEach(function() {
+        client.logout();
         jasmine.Ajax.uninstall();
     });
 
@@ -87,7 +89,7 @@ describe("Request", function() {
     describe('base', function() {
         it('should send SECRET-TOKEN header if has token', function(done) {
             var expectedToken = 'kottans';
-            client._token = expectedToken;
+            client.setToken(expectedToken);
 
             client
                 ._apiRequest('get', 'login')
@@ -96,7 +98,7 @@ describe("Request", function() {
                 })
                 .then(done);
 
-            simpleResponse(200, '');
+            simpleResponse(200, {});
         });
     });
 });

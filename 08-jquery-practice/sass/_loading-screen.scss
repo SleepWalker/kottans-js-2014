@@ -1,0 +1,74 @@
+
+.app__loader {
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    background: #f1f1f1;
+    overflow: hidden;
+}
+
+.logo {
+    text-align: center;
+    height: 100%;
+}
+
+.logo img {
+    margin-top: 7%;
+    max-height: 30%;
+}
+
+.logo h1 {
+    font-size: 5vh;
+}
+.app__content {
+}
+
+.init-loader {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+
+    text-align: center;
+}
+.init-loader svg {
+    width: 60px;
+    height: 60px;
+}
+.init-loader path {
+    fill: none;
+    stroke-width: 6;
+}
+.init-loader__progress {
+    transition: stroke-dashoffset 0.2s;
+    /*stroke: #ef6e7e;*/
+    stroke: #000;
+}
+.init-loader__base {
+    stroke: #ddd;
+}
+
+.app__loader .init-loader,
+.app__loader .logo {
+    opacity: 1;
+    animation: animLoaderContent 1s cubic-bezier(0.7,0,0.3,1) both;
+}
+
+.app__loader .init-loader {
+    animation-delay: 0.2s;
+}
+
+.app.is-loaded .app__loader {
+    animation: animSlideUp 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes animLoaderContent {
+    from {
+        opacity: 0;
+        transform: translate3d(0,800px,0);
+    }
+}
+
+@keyframes animSlideUp {
+    to { transform: translate3d(0,-100%,0); }
+}

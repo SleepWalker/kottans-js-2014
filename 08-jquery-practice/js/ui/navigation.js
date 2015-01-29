@@ -1,7 +1,6 @@
-$(function() {
+var Navigation = (function() {
     'use strict';
 
-    // TODO: on hash change
     var $lastPage = false;
     var $curPage = false;
     var animatingQueue = [];
@@ -28,36 +27,38 @@ $(function() {
     function animationEndHandler() {
         animatingQueue.pop();
         if (!animatingQueue.length) {
-            $curPage.attr('class', $curPage.data('initialClassList') + ' ' + activeClass);
+            endAnimation();
+        }
+    }
 
-            if ($lastPage) {
-                $lastPage.attr('class', $lastPage.data('initialClassList'));
-            }
+    function endAnimation() {
+        $curPage
+            .attr('class', $curPage.data('initialClassList') + ' ' + activeClass)
+            .off(animationEnd) // for the case, when we need to stop animation emmidiately
+            ;
+
+        if ($lastPage) {
+            $lastPage
+                .attr('class', $lastPage.data('initialClassList'))
+                .off(animationEnd) // for the case, when we need to stop animation emmidiately
+                ;
         }
     }
 
     function navigateTo(hash, options) {
         var id = '#' + hash;
         var $section = $(id);
-        var $a = $('#nav').find('[href$="'+id+'"]');
+        var $a = $('#nav').find('[href*="'+id+'"]');
         var $li = $a.closest('li');
-        var canNavigate = $section.length && !animatingQueue.length && !$li.hasClass('active');
-        if (canNavigate) {
-            $('#nav').find('li').removeClass('active');
-            changePage($section);
-            $li.addClass('active');
+        var canNavigate = $section.length && !$li.hasClass(activeClass);
+        if (!!animatingQueue.length) {
+            endAnimation();
         }
-    }
 
-    var defaultAction = 'login';
-    var allowedActions = ['login', 'signup', 'list', 'view'];
-    function getActionId() {
-        var hash = location.hash.slice(1);
-
-        if (hash && allowedActions.indexOf(hash) > -1) {
-            return hash;
-        } else {
-            return defaultAction;
+        if (canNavigate) {
+            $('#nav').find('li').removeClass(activeClass);
+            changePage($section);
+            $li.addClass(activeClass);
         }
     }
 
@@ -67,14 +68,10 @@ $(function() {
         });
     }
 
-    (function initNavigation() {
-        var $sections = $('.section');
-        memorizeClasses($sections);
+    function Navigation($pages) {
+        memorizeClasses($pages);
+    }
 
-
-        navigateTo(getActionId());
-        router.on('change', function() {
-            navigateTo([].slice.call(arguments, 1));
-        });
-    }());
-});
+    Navigation.prototype.navigateTo = navigateTo;
+    return Navigation;
+}());
