@@ -1,27 +1,27 @@
 function DatingClient() {}
 
-// TODO: создать обвертку, которая будет приводить все ошибки к единому формату
-//       использовать ее либо для всех запросов, либо только в тех местах, где есть форма и надо вывести информацию
-
-// TODO: не пускать логиниться залогиненного
 // TODO: общую часть тестов Login и Register вынести в отдельный тест низкоуровневых функций
+// TODO: AMD like loader based on promises x.module('...').requires([]).defines(function(){})
+// TODO: base object to bind views with corresponding events, ak comutator. so that views will be isolated from the app
+// TODO: create nav dynamically based on available actions (?)
+// TODO: ES6 features
+// TODO: docs headers for each file
+// TODO: template caching
+// TODO: script caching
 
 // TODO: FP
+// TODO: ES6 promises + yield
 
-// TODO: Loader queue (ui dir), asset manager
-// TODO: app namespace
-
-// TODO: возможность немедленно прервать Page transition
-
-
-//TODO: "pushState" in history
+//TODO: feature detection: "pushState" in history
+//TODO: feature detection: "getItem" in localStorage
 
 (function() {
     'use strict';
 
     var apiUrl = 'http://api.sudodoki.name:8888/';
+
     DatingClient.prototype = $.extend(DatingClient.prototype, {
-        _token: false,
+        sessionKey: 'dating-secret',
 
         login: function(credentials) {
             if (!credentials.login || !credentials.password) {
@@ -29,6 +29,10 @@ function DatingClient() {}
             }
 
             return this._handleRequestPromise(this._post('login', credentials));
+        },
+
+        logout: function() {
+            localStorage.removeItem(this.sessionKey);
         },
 
         register: function(credentials) {
@@ -59,16 +63,24 @@ function DatingClient() {}
             return this._get('user/'+id);
         },
 
+        setToken: function(token) {
+            localStorage.setItem(this.sessionKey, token);
+        },
+
+        getToken: function() {
+            return localStorage.getItem(this.sessionKey);
+        },
+
         isAuthorized: function() {
-            return !!this._token;
+            return !!this.getToken();
         },
 
         _handleRequestPromise: function(promise) {
             var that = this;
             return promise
                .then(function(data) {
-                    that._token = data.token;
-                    return that.isAuthorized() ? that._token : Promise.reject({errorMessage: 'Can\'t signin: empty token'});
+                    that.setToken(data.token);
+                    return that.isAuthorized() ? that.getToken() : Promise.reject({errorMessage: 'Can\'t signin: empty token'});
                })
                .catch(function(data) {
                     var errors = normalizeApiErrors(data);
@@ -110,29 +122,29 @@ function DatingClient() {}
         _getRequestHeaders: function() {
             if (this.isAuthorized()) {
                 return {
-                    'SECRET-TOKEN': this._token
+                    'SECRET-TOKEN': this.getToken()
                 };
             }
         }
     });
 
     function normalizeApiErrors(data) {
-        var errorMessage = data.error;
-        var errorDetails = data.errors;
-        if (errorDetails) {
-            errorDetails = errorDetails.reduce(function(acc, error) {
+        var message = data.error;
+        var details = data.errors;
+        if (details) {
+            details = details.reduce(function(acc, error) {
                 var attribute = Object.keys(error)[0];
                 acc[attribute] = error[attribute];
 
                 return acc;
             }, {});
-        } else if (!errorMessage) {
-            errorMessage = 'Unknown error';
+        } else if (!message) {
+            message = 'Unknown error';
         }
 
         return {
-            errorMessage: errorMessage,
-            errorDetails: errorDetails,
+            message: message,
+            details: details,
         };
     }
 }());

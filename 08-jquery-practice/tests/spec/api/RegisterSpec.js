@@ -2,11 +2,13 @@ describe("Register", function() {
     'use strict';
 
     var client = new DatingClient();
+    client.sessionKey = 'testing';
     beforeEach(function() {
         jasmine.Ajax.install();
     });
 
     afterEach(function() {
+        client.logout();
         jasmine.Ajax.uninstall();
     });
 
@@ -53,8 +55,8 @@ describe("Register", function() {
 
     it('should reject with errors on failure', function(done) {
         var expectedError = {
-            errorMessage: undefined,
-            errorDetails: {
+            message: undefined,
+            details: {
                 login: 'bad login',
                 password: 'where is your password?'
             }
@@ -66,9 +68,9 @@ describe("Register", function() {
 
         simpleResponse(422, {
             errors: [{
-                login: expectedError.errorDetails.login
+                login: expectedError.details.login
             }, {
-                password: expectedError.errorDetails.password
+                password: expectedError.details.password
             }]
         });
     });

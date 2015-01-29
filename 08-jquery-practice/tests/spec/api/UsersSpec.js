@@ -4,10 +4,12 @@ describe("User", function() {
     var client;
     beforeEach(function() {
         client = new DatingClient();
+        client.sessionKey = 'testing';
         jasmine.Ajax.install();
     });
 
     afterEach(function() {
+        client.logout();
         jasmine.Ajax.uninstall();
     });
 
@@ -44,7 +46,7 @@ describe("User", function() {
 
         describe('with token', function() {
             beforeEach(function() {
-                client._token = 'kottans';
+                client.setToken('kottans');
             });
 
             it('should require arguments', function() {

@@ -1,0 +1,26 @@
+.loader {
+    border-radius: 0 100px 100px 0;
+    left: -192px;
+    opacity: 0.9;
+    padding-left: 30px;
+    position: fixed;
+    top: 45%;
+    z-index: 100005;
+    transform: translateZ(0px);
+
+    box-shadow: 0 0 85px black, 0 0 85px black;
+    background: #000;
+
+    transition: .4s;
+}
+
+.loader.is-active {
+    left: 0;
+}
+
+.loader__indicator {
+    border-radius: 0 100px 100px 0;
+    height: 72px;
+    width: 72px;
+    background: url("../images/preloader.gif") no-repeat scroll center center #000;
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "2bc2f8f7fe03f23",
+    "user": {
+      "gender": "male",
+      "name": {
+        "title": "mr",
+        "first": "soham",
+        "last": "patterson"
+      }
+    }
+  },
+  {
+    "id": "13a7e68e767f260",
+    "user": {
+      "gender": "female",
+      "name": {
+        "title": "miss",
+        "first": "ella",
+        "last": "watson"
+      }
+    }
+  },
+  {
+    "id": "a415915adfc1fbb",
+    "user": {
+      "gender": "male",
+      "name": {
+        "title": "mr",
+        "first": "donald",
+        "last": "bailey"
+      }
+    }
+  },
+  {
+    "id": "9d6866a9266b18b",
+    "user": {
+      "gender": "male",
+      "name": {
+        "title": "mr",
+        "first": "brandon",
+        "last": "nelson"
+      }
+    }
+  },
+  {
+    "id": "144e276cf96bfbf",
+    "user": {
+      "gender": "female",
+      "name": {
+        "title": "ms",
+        "first": "zoe",
+        "last": "adams"
+      }
+    }
+  },
+  {
+    "id": "2b5b376df448938",
+    "user": {
+      "gender": "female",
+      "name": {
+        "title": "mrs",
+        "first": "brianna",
+        "last": "thompson"
+      }
+    }
+  },
+  {
+    "id": "d507ef43ca07745",
+    "user": {
+      "gender": "female",
+      "name": {
+        "title": "miss",
+        "first": "kay",
+        "last": "hayes"
+      }
+    }
+  },
+  {
+    "id": "3d61cd11280d5d1",
+    "user": {
+      "gender": "male",
+      "name": {
+        "title": "mr",
+        "first": "angel",
+        "last": "rivera"
+      }
+    }
+  },
+  {
+    "id": "2ee8311159b2510",
+    "user": {
+      "gender": "male",
+      "name": {
+        "title": "mr",
+        "first": "nathan",
+        "last": "watson"
+      }
+    }
+  },
+  {
+    "id": "3673faed85d4271",
+    "user": {
+      "gender": "female",
+      "name": {
+        "title": "mrs",
+        "first": "christine",
+        "last": "ward"
+      }
+    }
+  }
+]

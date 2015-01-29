@@ -4,10 +4,12 @@ describe("Login", function() {
     var client;
     beforeEach(function() {
         client = new DatingClient();
+        client.sessionKey = 'testing';
         jasmine.Ajax.install();
     });
 
     afterEach(function() {
+        client.logout();
         jasmine.Ajax.uninstall();
     });
 
@@ -69,14 +71,44 @@ describe("Login", function() {
     });
 
     it('should reject with errors on failure', function(done) {
-        var expectedError = {errorMessage: 'Ooops, something wrong...', errorDetails: undefined};
+        var expectedError = {message: 'Ooops, something wrong...', details: undefined};
         client
             .login(credentials)
             .catch(expectArgument(expectedError))
             .then(done);
 
         simpleResponse(403, {
-            error: expectedError.errorMessage
+            error: expectedError.message
         });
+    });
+
+    it('should #setToken', function() {
+        client.setToken('test');
+
+        expect(client.isAuthorized()).toBe(true);
+    });
+
+    it('should #getToken', function() {
+        client.setToken('test');
+
+        expect(client.getToken()).toBe('test');
+    });
+
+    it('should start session', function() {
+        client.setToken('test');
+        var client2 = new DatingClient();
+        client2.sessionKey = client.sessionKey;
+
+        expect(client.isAuthorized()).toBe(true);
+    });
+
+    it('should #logout', function() {
+        client.setToken('test');
+
+        client.logout();
+        var client2 = new DatingClient();
+        client2.sessionKey = client.sessionKey;
+
+        expect(client.isAuthorized()).toBe(false);
     });
 });
