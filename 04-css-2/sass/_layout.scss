@@ -27,11 +27,8 @@ body {
 
 .section__title {
     margin: 0;
-}
-
-.section__title + hr {
-    margin-top: 0;
     margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
 }
 
 .section--register {
