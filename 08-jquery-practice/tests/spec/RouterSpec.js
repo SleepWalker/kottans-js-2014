@@ -1,4 +1,4 @@
-describe("Router", function() {
+describe('Router', function() {
     'use strict';
 
     var router = new Router();
@@ -10,16 +10,16 @@ describe("Router", function() {
         history.pushState(null, initialTitle, initialHref);
     }
 
+    beforeEach(function() {
+        router.off();
+        resetLocation();
+    });
+
+    afterEach(function() {
+        resetLocation();
+    });
+
     describe('events', function() {
-        beforeEach(function() {
-            router.off();
-            resetLocation();
-        });
-
-        afterEach(function() {
-            resetLocation();
-        });
-
         function doClick(hash) {
             $('<a href="#'+hash+'">').appendTo('body').click().remove();
         }
@@ -97,32 +97,42 @@ describe("Router", function() {
                 doClick(hash);
             });
         });
+    });
 
-        describe('#go', function() {
-            var expected = location.origin+'/#test/param';
-            it('should push state', function() {
-                spyOn(history, 'pushState');
+    describe('#go', function() {
+        var expected = location.origin + location.pathname + '#test/param';
+        it('should push state', function() {
+            spyOn(history, 'pushState');
 
-                router.go(expected);
+            router.go(expected);
 
-                expect(history.pushState.calls.mostRecent().args[2]).toEqual(expected);
-            });
+            expect(history.pushState.calls.mostRecent().args[2]).toEqual(expected);
+        });
 
-            it('should not fail, when there is no slash before #', function() {
-                spyOn(history, 'pushState');
+        it('should not fail, when there is no slash before #', function() {
+            spyOn(history, 'pushState');
 
-                router.go(expected.replace('/#', '#'));
+            router.go(expected.replace('/#', '#'));
 
-                expect(history.pushState.calls.mostRecent().args[2]).toEqual(expected);
-            });
+            expect(history.pushState.calls.mostRecent().args[2]).toEqual(expected);
+        });
 
-            it('should not redirect outside origin', function() {
-                spyOn(history, 'pushState');
+        it('should properly determine base url', function() {
+            // NOTE: router#go users window.location, to build urls.
+            // This test is possible, because we already have '/tests' in location
+            spyOn(history, 'pushState');
 
-                router.go('http://fake.com#test/param');
+            router.go('#test/param');
 
-                expect(history.pushState.calls.mostRecent().args[2]).toEqual(expected);
-            });
+            expect(history.pushState.calls.mostRecent().args[2]).toEqual(expected);
+        });
+
+        it('should not redirect outside origin', function() {
+            spyOn(history, 'pushState');
+
+            router.go('http://fake.com#test/param');
+
+            expect(history.pushState.calls.mostRecent().args[2]).toEqual(expected);
         });
     });
 });
