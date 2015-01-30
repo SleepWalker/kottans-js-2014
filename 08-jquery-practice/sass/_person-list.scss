@@ -38,7 +38,7 @@
     border-color: blue;
 }
 .person--male:before {
-    content: '♂';
+    content: '\2642'; // ♂
     color: blue;
 }
 
@@ -46,7 +46,7 @@
     border-color: #FD6A62;
 }
 .person--female:before {
-    content: '♀';
+    content: '\2640'; // ♀
     color: #FD6A62;
 }
 .person:before {
