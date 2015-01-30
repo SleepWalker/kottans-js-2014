@@ -43,8 +43,8 @@ function Router() {
         },
 
         go: function(url, title) {
-            url = url.replace(/^https?:\/\/[^\/#]+\/?/, '');
-            url = location.origin + '/' + url;
+            var route = url.replace(/^https?:\/\/[^#]+\/?/, '');
+            url = location.origin + location.pathname + route;
 
             history.pushState(null, title, url);
 
